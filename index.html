@@ -11,6 +11,9 @@
     <meta name="author" content="CEISI UNCAUS">
     <link rel="canonical" href="https://tusitio.com/">
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
             margin: 0; 
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -22,15 +25,19 @@
             align-items: center;
             justify-content: center;
             background: #2d3e50;
-            padding: 16px 32px;
+            padding: 16px 20px;
         }
         .logo {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
         }
         .logo img {
             height: 90px;
             margin-right: 20px;
+            max-width: 100%;
         }
         .logo span {
             color: #fff;
@@ -53,7 +60,7 @@
             background: #eaf6fb;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(44,62,80,0.07);
-            padding: 50px 32px;
+            padding: 30px 20px;
             font-size: 1rem;
             text-align: center;
         }
@@ -63,6 +70,7 @@
             gap: 32px;
             margin: 40px 0 100px 0;
             flex-wrap: wrap;
+            padding: 0 15px;
         }
         .card-link {
             text-decoration: none;
@@ -105,19 +113,18 @@
             background: #2d3e50;
             color: #fff;
             text-align: center;
-            padding: 20px 0;
+            padding: 20px 15px;
             font-size: 1rem;
-            position: relative;
-            bottom: 0;
             width: 100%;
         }
         .social-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 24px;
+            padding: 15px 20px;
             background: #eaf6fb;
             border-top: 1px solid #f7fcff;
+            flex-wrap: wrap;
         }
         .social-bar a {
             color: #2d3e50;
@@ -130,26 +137,12 @@
         .social-bar a:hover {
             color: #ffffff;
         }
-        @media (max-width: 900px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .card-link {
-                width: 80%;
-                max-width: none;
-            }
-            .social-bar {
-                flex-direction: column;
-                gap: 16px;
-            }
-        }
         .calendario-unico {
             background: #fff;
             border-radius: 30px;
             box-shadow: 0 2px 12px rgba(44,62,80,0.08);
-            padding: 32px 30px 40px 30px;
-            max-width: 4000px; 
+            padding: 32px 20px 40px 20px;
+            max-width: 1100px; 
             margin: 40px auto;
             text-align: center;
         }
@@ -168,7 +161,7 @@
             flex-direction: column;
             align-items: center;
             width: 340px;
-            max-width: 90vw;
+            max-width: 100%;
         }
         .cal-img-box img {
             max-width: 100%;
@@ -181,13 +174,166 @@
             color: #2d3e50;
             font-weight: 500;
         }
-        @media (max-width:1000px) {
+        
+        /* Sección Momentos CEISI - Corregida */
+        .momentos-container {
+            max-width: 1100px;
+            margin: 0 auto 40px auto;
+            padding: 0 15px;
+        }
+        .momentos-titulo {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .momentos-titulo span {
+            display: inline-block;
+            border: 2px solid #2d3e50;
+            border-radius: 10px;
+            padding: 12px 30px;
+            background: #f7fafc;
+            font-size: 1.8rem;
+            color: #2d3e50;
+            font-weight: bold;
+            box-shadow: 0 2px 20px rgba(44,62,80,0.06);
+            width: 100%;
+            max-width: 500px;
+        }
+        .momentos-galeria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding-bottom: 18px;
+        }
+        .momento-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+            padding: 18px;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+        }
+        .momento-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            height: auto;
+        }
+        .momento-item p {
+            color: #2d3e50;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        /* Botones */
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 0 15px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: #2d3e50;
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: #1a2533;
+        }
+        
+        /* Media queries para responsive */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card-link {
+                width: 80%;
+                max-width: none;
+            }
+            .social-bar {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .logo span {
+                font-size: 1.5rem;
+                margin-top: 10px;
+            }
+            .info-comuni {
+                padding: 20px 15px;
+                margin: 20px 15px 0 15px;
+            }
+            .info-comunidad {
+                padding: 20px 15px;
+                margin: 3px 15px 0 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo img {
+                height: 70px;
+                margin-right: 10px;
+            }
+            .logo span {
+                font-size: 1.3rem;
+            }
+            .momentos-titulo span {
+                font-size: 1.5rem;
+                padding: 10px 20px;
+            }
             .calendario-imagenes {
                 flex-direction: column;
                 gap: 24px;
             }
             .cal-img-box {
-                width: 100vw;
+                width: 100%;
+            }
+            .btn-primary {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 12px 15px;
+            }
+            .logo {
+                flex-direction: column;
+            }
+            .logo img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .info-comuni {
+                font-size: 1.1rem;
+                border-radius: 8px;
+            }
+            .card-link {
+                width: 100%;
+                min-width: auto;
+            }
+            .momentos-titulo span {
+                font-size: 1.3rem;
+                padding: 8px 15px;
+            }
+            .social-bar img {
+                height: 40px !important;
+            }
+            .social-bar a {
+                font-size: 2.2rem;
+            }
+            footer {
+                font-size: 0.9rem;
+                padding: 15px 10px;
             }
         }
     </style>
@@ -242,7 +388,7 @@
     </div>
 
     <!-- Calendarios academicos -->
-    <h2 style="text-align:center; color:#2d3e50; margin-bottom:30px; margin-top:80px;">Calendarios Académicos</h2>
+    <h2 style="text-align:center; color:#2d3e50; margin-bottom:30px; margin-top:80px; padding: 0 15px;">Calendarios Académicos</h2>
     <div class="calendario-imagenes">
         <div class="cal-img-box">
             <img src="17.png" alt="Calendario Académico 2025">
@@ -253,72 +399,39 @@
     </div>
 
     <!-- Botón para ir a otra página -->
-    <div style="text-align:center; margin-bottom:30px;">
-        <a href="https://drive.google.com/drive/folders/1X2iPfKNN-WMJUQCLjReLOtzufIskCUqW?usp=drive_link" target="_blank" style="
-            display: inline-block;
-            background: #2d3e50;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: background 0.2s;
-        " onmouseover="this.style.background='#1a2533'" onmouseout="this.style.background='#2d3e50'">
+    <div class="btn-container">
+        <a href="https://drive.google.com/drive/folders/1X2iPfKNN-WMJUQCLjReLOtzufIskCUqW?usp=drive_link" target="_blank" class="btn-primary">
             Calendario Académico 2025
         </a>
     </div>
 
-    <!-- Apartado Momentos CEISI -->
-    <div style="max-width:1100px; margin: 0 auto 40px auto;">
-        <div style="text-align:center; margin-bottom:24px;">
-            <span style="
-                display: inline-block;
-                border: 2px solid #2d3e50;
-                border-radius: 10px;
-                padding: 10px 120px;
-                min-width: 400px;
-                background: #f7fafc;
-                font-size: 2rem;
-                color: #2d3e50;
-                font-weight: bold;
-                box-shadow: 0 2px 20px rgba(44,62,80,0.06);
-            ">
+    <!-- Apartado Momentos CEISI - Corregido -->
+    <div class="momentos-container">
+        <div class="momentos-titulo">
+            <span>
                 Momentos CEISI
             </span>
         </div>
-        <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center; padding-bottom: 18px;">
-            <div style="background:#fff; border-radius:12px; box-shadow:0 2px 12px rgba(44,62,80,0.08); padding:18px; width:280px; text-align:center;">
-                <img src="photo_2025-08-24_14-48-15.jpg" alt="Momento CEISI " style="width:100%; border-radius:8px; margin-bottom:12px;">
-                <p style="color:#2d3e50; font-weight:500;">Jornada de bienvenida 2025</p>
+        <div class="momentos-galeria">
+            <div class="momento-item">
+                <img src="photo_2025-08-24_14-48-15.jpg" alt="Jornada de bienvenida 2025">
+                <p>Jornada de bienvenida 2025</p>
             </div>
-            <div style="background:#fff; border-radius:12px; box-shadow:0 2px 12px rgba(44,62,80,0.08); padding:18px; width:280px; text-align:center;">
-                <img src="photo_2025-08-24_14-53-56.jpg" alt="Momento CEISI " style="width:100%; border-radius:8px; margin-bottom:12px;">
-                <p style="color:#2d3e50; font-weight:500;">Clases particulares</p>
+            <div class="momento-item">
+                <img src="photo_2025-08-24_14-53-56.jpg" alt="Clases particulares">
+                <p>Clases particulares</p>
             </div>
-            <div style="background:#fff; border-radius:12px; box-shadow:0 2px 12px rgba(44,62,80,0.08); padding:18px; width:280px; text-align:center;">
-                <img src="photo_2025-08-24_14-55-32.jpg" alt="Momento CEISI " style="width:100%; border-radius:8px; margin-bottom:12px;">
-                <p style="color:#2d3e50; font-weight:500;">Momentos compartidos </p>
+            <div class="momento-item">
+                <img src="photo_2025-08-24_14-55-32.jpg" alt="Momentos compartidos">
+                <p>Momentos compartidos</p>
             </div>
             <!-- Puedes agregar más bloques similares para más imágenes -->
         </div>
     </div>
 
     <!-- Botón para sumarse a la comunidad -->
-    <div style="text-align:center; margin-bottom:36px;">
-        <a href="mailto:ceisi.uncaus@gmail.com" target="_blank" style="
-            display: inline-block;
-            background: #2d3e50;
-            color: #fff;
-            padding: 14px 38px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 10px;
-            box-shadow: 0 2px 12px rgba(44,62,80,0.10);
-            transition: background 0.2s;
-        " onmouseover="this.style.background='#1a2533'" onmouseout="this.style.background='#2d3e50'">
+    <div class="btn-container">
+        <a href="mailto:ceisi.uncaus@gmail.com" target="_blank" class="btn-primary">
             Animate a ser parte de esta comunidad
         </a>
     </div>
@@ -370,9 +483,4 @@
   })(document, 'script');
 </script>
 </body>
-
-</html> 
-
-
-
-
+</html>
